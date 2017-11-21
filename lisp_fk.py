@@ -18,6 +18,7 @@ tokens = ['SYMBOL',
       	'CLOSE']
 
 parser = ox.make_parser([
+    	('sexpr : OPEN CLOSE', lambda x,y: '()'),
     	('sexpr : OPEN expr CLOSE', lambda x,y,z: y),
     	('expr : atom expr', lambda x,y: (x,) + y),
     	('expr : atom', lambda x: (x,)),
@@ -32,6 +33,7 @@ parser = ox.make_parser([
 def make_ast(source):
 	source_code = source.read()
 	tokens = lexer(source_code)
+	print(tokens)
 	ast = parser(tokens)
 	pprint.pprint(ast)
 
