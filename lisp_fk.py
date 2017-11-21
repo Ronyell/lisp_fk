@@ -17,16 +17,13 @@ tokens = ['SYMBOL',
       	'OPEN',
       	'CLOSE']
 
-operator = lambda type_op: ('operator', type_op)
-op = lambda op: (op)
-
 parser = ox.make_parser([
     	('sexpr : OPEN expr CLOSE', lambda x,y,z: y),
     	('expr : atom expr', lambda x,y: (x,) + y),
     	('expr : atom', lambda x: (x,)),
-    	('atom : sexpr', op),
-    	('atom : NUMBER', op),
-    	('atom : SYMBOL', op),
+    	('atom : sexpr', lambda x: x),
+    	('atom : NUMBER', lambda x: x),
+    	('atom : SYMBOL', lambda x: x),
 ], tokens)
 
 
