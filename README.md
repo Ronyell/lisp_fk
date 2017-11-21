@@ -1,4 +1,8 @@
-# Lisp FK
+# Parser Lisp
+
+Este trabalho é um parser de lisp que gera uma arvore sintática para a disciplina de Fundamento de Compiladores 2017/2.
+
+**Feito por:**
 
 |Aluno|Matrícula|
 |:---:|:---:|

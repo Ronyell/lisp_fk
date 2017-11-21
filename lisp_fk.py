@@ -32,12 +32,11 @@ parser = ox.make_parser([
 
 @click.command()
 @click.argument('source', type=click.File('r'))
-def make_tree(source):
-	program = source.read()
-	tokens = lexer(program)
-
-	tree = parser(tokens)
-	pprint.pprint(tree)
+def make_ast(source):
+	source_code = source.read()
+	tokens = lexer(source_code)
+	ast = parser(tokens)
+	pprint.pprint(ast)
 
 if __name__ == '__main__':
-	make_tree()
+	make_ast()
